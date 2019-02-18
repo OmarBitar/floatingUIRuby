@@ -41,6 +41,7 @@ class MenuExample < FXMainWindow
     save_icon = load_icon("filesave.png")
     save_as_icon = load_icon("filesaveas.png")
 
+
     # create btns and add icons to them
     new_button = FXButton.new(tool_bar,
       "\tNew\tCreate new document.",
@@ -57,10 +58,12 @@ class MenuExample < FXMainWindow
 
   end
   
+  #load image function
   def load_icon(filename)
     icon = nil
     File.open(filename, "rb") do |io|
       icon = FXPNGIcon.new(app, io.read)
+      icon.scale(100,100)
     end
     icon
   end
